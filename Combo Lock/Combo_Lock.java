@@ -32,16 +32,21 @@ public class Combo_Lock
         
     }
     
+    public void secretCombo()
+    {
+        System.out.println("The Code is :"+this.number1+"/"+this.number2+"/"+this.number3);
+    }
+    
     public int turnLeft(int ticks)
     {
         for (int i=0; i<ticks; i++)
         {
          
-            if(curPos==40)
+            if(curPos==0)
             {
-                curPos=0;
+                curPos=40;
             }
-            curPos+=1;
+            curPos-=1;
 
         }
          if (num2==100)
@@ -55,11 +60,11 @@ public class Combo_Lock
         for (int i=0; i<ticks; i++)
         {
           
-            if(curPos==0)
+            if(curPos==40)
             {
-                curPos=40;
+                curPos=0;
             }
-            curPos-=1;
+            curPos+=1;
         }
         if (num1==100)
         {num1= curPos;
