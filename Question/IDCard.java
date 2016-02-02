@@ -15,9 +15,16 @@ public class IDCard extends Card
    idNumber = id;
   }
   
+  /**
+   * Gets the ID number of the card.
+   */
   public String getID()
   {
       return this.idNumber;
   }
   
+  public String format()
+  {
+      return super.format()+ "ID number is: "+ this.getID();
+  }
 }
