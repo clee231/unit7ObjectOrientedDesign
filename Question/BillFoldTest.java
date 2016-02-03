@@ -50,7 +50,7 @@ public class BillFoldTest
         BillFold wallet= new BillFold();
         wallet.addCard("ID");
         wallet.addCard("ID2");
-        assertEquals(true, wallet.getStat(),1e-6);
+        
 
         
 
