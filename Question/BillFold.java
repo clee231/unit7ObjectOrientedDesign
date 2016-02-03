@@ -6,7 +6,7 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BillFold extends Card
+public class BillFold
 {
     private Card card1;
     private Card card2;
@@ -37,6 +37,9 @@ public class BillFold extends Card
             this.status=true;
         }
     }
+    
+    
+    
     public boolean getStat()
     {
         return status;
