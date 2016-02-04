@@ -12,7 +12,13 @@ public class Data
       {
          sum = sum + obj.getMeasure();
       }
-      if (objects.length > 0) { return sum / objects.length; }
-      else { return 0; }
+      if (objects.length > 0) 
+      { 
+          return sum / objects.length;
+      }
+      else
+      { 
+          return 0; 
+      }
    }
 }
