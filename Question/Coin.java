@@ -37,10 +37,8 @@ public class Coin implements Comparable<Coin>
       return name;
    }
    
-   public int compareTo(Coin other)
+   public int compareTo(Coin otherCoin)
    {
-      Coin otherCoin= (Coin)other; // has to cast the object to Coin
-      
       return (int)(this.value -otherCoin.value);
 //       if (this.value> otherCoin.value)
 //       {
