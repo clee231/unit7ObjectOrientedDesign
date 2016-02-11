@@ -15,6 +15,11 @@ public class Person implements Comparable<Person>
         return (this.name.compareTo(otherPerson.name));  
     }
     
+    public String getName()
+    {
+        return this.name;
+    }
+    
     public static void main(String[] args)
     {
        ArrayList<Person> list = new ArrayList<Person>();
@@ -26,4 +31,6 @@ public class Person implements Comparable<Person>
        }
        Collections.sort(list);
     }
+    
+    
 }
