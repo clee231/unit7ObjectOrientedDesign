@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Triangle extends JFrame
 {
-    private static final int FRAME_WIDTH= 250;// in pixels
+    private static final int FRAME_WIDTH= 350;// in pixels
     private static final int FRAME_HEIGHT= 200;
     
     private int point1;
