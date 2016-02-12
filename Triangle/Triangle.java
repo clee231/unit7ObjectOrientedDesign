@@ -4,10 +4,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 /**
- * Write a description of class Triangle here.
- * 
- * @author (your name) 
+ * Draws a triangle using the GUI to pick the 3 points on the given screen size
+ * @author (Bryce Lee) 
  * @version (a version number or a date)
  */
 public class Triangle extends JFrame
@@ -29,8 +30,6 @@ public class Triangle extends JFrame
         MousePressListener listener= new MousePressListener();
         
         
-        
-        
         this.frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
         this.frame.setVisible(true);
@@ -44,7 +43,7 @@ public class Triangle extends JFrame
   
     public class MousePressListener implements MouseListener
     {
-        public void mousePress(MouseEvent event)
+        public void mousePressed(MouseEvent event)
         {
             int x= event.getX();
             int y= event.getY();
