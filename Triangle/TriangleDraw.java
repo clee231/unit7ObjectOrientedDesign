@@ -16,6 +16,7 @@ import java.awt.geom.Ellipse2D;
 public class TriangleDraw extends JComponent 
 {
    
+    
     /**
      *@param    g2 the graphics context
      */
@@ -25,11 +26,11 @@ public class TriangleDraw extends JComponent
 
         
     }
-    public void point (Graphics2D g2)
+    public void drawPoint (Graphics2D g2, int x, int y)
     {
       //this will draw a point on the screen
       Ellipse2D ellipse = new Ellipse2D.Double();
-      g2.draw(new Ellipse2D.Double(1,1,2,2)); // need to be specific
+      g2.draw(new Ellipse2D.Double(x,y,x+2,y+2)); // need to be specific
     }
     public void line(Graphics2D g2)
     {
