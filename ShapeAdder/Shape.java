@@ -15,25 +15,22 @@ import javax.swing.JComponent;
 public abstract class Shape
 {
     private int radius;
-    private int width; //Note that we are making a square, so both width and height are the same.
+    private int width;
+    private int center;
+    //Note that we are making a square, so both width and height are the same.
     public Shape()
     {
        this.radius =50;
        this.width= 70;
+       this.center= 250;
     }
-    public int getRadius()
-    {
-        return this.radius;
-    }
-    public int getWidth()
-    {
-        return this.width;
-    }
+    
     public void draw(Graphics2D g2)
     {
         g2.setColor(Color.YELLOW); 
         // this is just temp. We will need to grab the color of shape when clicked
     }
+    
     public void resize()
     {
     }

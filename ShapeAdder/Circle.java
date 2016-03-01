@@ -19,8 +19,7 @@ public class Circle extends Shape
     }
     public void draw(Graphics2D g2)
     {
-        radius= super.getRadius();
-        Ellipse2D circle = new Ellipse2D.Double(0, 0, radius,radius);
+        //Ellipse2D circle = new Ellipse2D.Double(0, 0, super.radius,super.radius);
     }
     public void resize()
     {

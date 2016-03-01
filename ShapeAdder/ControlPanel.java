@@ -67,7 +67,7 @@ public class ControlPanel  extends JPanel
            }
            else 
            {
-               //System.out.println(drawPan.pickColor());   
+               drawPan.pickColor();   
            }
         }
 
