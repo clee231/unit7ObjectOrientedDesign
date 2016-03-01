@@ -28,6 +28,8 @@ public class ControlPanel  extends JPanel
    JButton circleButton;
    JButton pickColor;
    DrawingPanel drawPan;
+   JPanel colorPanel;
+   Color currentColor;
    
    public ControlPanel(DrawingPanel canvas)
    {
@@ -35,13 +37,13 @@ public class ControlPanel  extends JPanel
        this.circleButton= new JButton("Add Circle");
        this.pickColor= new JButton("Choose Color");
        this.drawPan= new DrawingPanel();
-       JPanel colorPanel= new JPanel();
-       Color chosenColor = new Color(0,0,0);
+       this.colorPanel= new JPanel();
+       Color currentColor = new Color(0,0,0);
        
        this.add(squareButton);
        this.add(circleButton);
        
-       colorPanel.setBackground(chosenColor);
+       colorPanel.setBackground(currentColor);
        this.add(pickColor);
        this.add(colorPanel);
        
@@ -68,6 +70,8 @@ public class ControlPanel  extends JPanel
            else if (event.getActionCommand()== "Choose Color")
            {
                drawPan.pickColor();   
+               currentColor=drawPan.getColor();
+               colorPanel.setBackground(currentColor);
            }
         }
 

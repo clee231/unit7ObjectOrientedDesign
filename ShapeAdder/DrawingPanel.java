@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
+import javax.swing.JComponent;
+
 /**
  * This is where most of the work is done. 
  * This class is a subclass of JPanel and it implements the MouseListener, MouseMotionListener, and KeyListener interfaces
@@ -27,14 +29,18 @@ import javax.swing.JColorChooser;
  */
 public class DrawingPanel //implements MouseMotionListener, MouseListener, KeyListener
 {
-    Square squareShape= new Square();
-    Circle circleShape= new Circle();
-    ArrayList<Shape> shapeList= new ArrayList<Shape>();
-    private Color defaultColor;
-    
+    Square squareShape;
+    Circle circleShape;
+    ArrayList<Shape> shapeList;
+    Color defaultColor;
+    int choice;
     public DrawingPanel()
     {
-        this.defaultColor=new Color(0,0,0);
+            Square squareShape= new Square();
+            Circle circleShape= new Circle();
+            ArrayList<Shape> shapeList= new ArrayList<Shape>();
+            Color defaultColor=new Color(0,0,0);
+
     }
 
     public Color getColor()
@@ -50,23 +56,33 @@ public class DrawingPanel //implements MouseMotionListener, MouseListener, KeyLi
     public void pickColor()
     {
         // we want to use the get color method first, then set the default color to the 
-        JColorChooser.showDialog(null, "Choose a color", defaultColor);
+        defaultColor=JColorChooser.showDialog(null, "Choose a color", defaultColor);
+       
     }
 
     public void addCircle()
     {
-        //this will be called on when we click the addCircle Button.
+        this.choice=1;
     }
 
     public void addSquare()
     {
-        // this will be called on when we cllick the addSquare Button
-        
+        this.choice=2;
+
     }
 
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
-        
+        if (this.choice==1)
+        {
+            circleShape.draw(g2);
+        }
+        else if (this.choice==2)
+        {
+            squareShape.draw(g2);
+        }
+
     }
+ 
 }
