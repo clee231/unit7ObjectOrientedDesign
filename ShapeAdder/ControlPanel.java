@@ -59,13 +59,13 @@ public class ControlPanel  extends JPanel
         {
            if( event.getActionCommand()== "Add Square")
            {
-               System.out.println("square");
+               drawPan.addSquare();
            }
            else if( event.getActionCommand()== "Add Circle")
            {
-            System.out.println("o");   
+              drawPan.addCircle();   
            }
-           else 
+           else if (event.getActionCommand()== "Choose Color")
            {
                drawPan.pickColor();   
            }
