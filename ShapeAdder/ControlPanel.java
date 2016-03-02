@@ -30,7 +30,7 @@ public class ControlPanel  extends JPanel
    DrawingPanel drawPan;
    JPanel colorPanel;
    Color currentColor;
-   
+   Color preColor;
    public ControlPanel(DrawingPanel canvas)
    {
        this.squareButton= new JButton("Add Square");
@@ -39,6 +39,7 @@ public class ControlPanel  extends JPanel
        this.drawPan= new DrawingPanel();
        this.colorPanel= new JPanel();
        Color currentColor = new Color(0,0,0);
+       Color preColor= new Color(0,0,0);
        
        this.add(squareButton);
        this.add(circleButton);
@@ -61,18 +62,27 @@ public class ControlPanel  extends JPanel
         {
            if( event.getActionCommand()== "Add Square")
            {
-               drawPan.addSquare();
+               drawPan.addSquare(currentColor);
            }
            else if( event.getActionCommand()== "Add Circle")
            {
-              drawPan.addCircle();   
+              drawPan.addCircle(currentColor);   
            }
            else if (event.getActionCommand()== "Choose Color")
            {
-               drawPan.pickColor();   
+               drawPan.pickColor();
+               preColor=currentColor;
                currentColor=drawPan.getColor();
-               colorPanel.setBackground(currentColor);
-           }
+               if (currentColor== null)
+               {
+                 colorPanel.setBackground(preColor);
+                 currentColor=preColor;
+               }
+               else
+               {
+                 colorPanel.setBackground(currentColor);
+               }
+            }
         }
 
     }

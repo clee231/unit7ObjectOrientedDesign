@@ -8,7 +8,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
 import javax.swing.JComponent;
-
+import javax.swing.JPanel;
 /**
  * This is where most of the work is done. 
  * This class is a subclass of JPanel and it implements the MouseListener, MouseMotionListener, and KeyListener interfaces
@@ -27,25 +27,26 @@ import javax.swing.JComponent;
  * @author (Bryce Lee) 
  * @version (2/24/2016)
  */
-public class DrawingPanel //implements MouseMotionListener, MouseListener, KeyListener
+public class DrawingPanel extends JPanel //implements MouseMotionListener, MouseListener, KeyListener
 {
     Square squareShape;
     Circle circleShape;
     ArrayList<Shape> shapeList;
-    Color defaultColor;
+    Color chosenColor;
     int choice;
     public DrawingPanel()
     {
             Square squareShape= new Square();
             Circle circleShape= new Circle();
             ArrayList<Shape> shapeList= new ArrayList<Shape>();
-            Color defaultColor=new Color(0,0,0);
+            Color chosenColor=new Color(0,0,0);
+            this.setBackground(Color.WHITE);
 
     }
 
     public Color getColor()
     {
-        return defaultColor;
+        return chosenColor;
     }
 
     public Dimension getPreferredSize()
@@ -56,23 +57,30 @@ public class DrawingPanel //implements MouseMotionListener, MouseListener, KeyLi
     public void pickColor()
     {
         // we want to use the get color method first, then set the default color to the 
-        defaultColor=JColorChooser.showDialog(null, "Choose a color", defaultColor);
+        chosenColor=JColorChooser.showDialog(null, "Choose a color", chosenColor);
        
     }
 
-    public void addCircle()
+    public void addCircle(Color currentColor)
     {
         this.choice=1;
+        chosenColor = currentColor;
+        //shapeList.add(circleShape);
+        repaint();
     }
 
-    public void addSquare()
+    public void addSquare(Color currentColor)
     {
         this.choice=2;
+        chosenColor = currentColor;
+        //shapeList.add(squareShape);
+        repaint();
 
     }
 
     public void paintComponent(Graphics g)
     {
+        super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         if (this.choice==1)
         {
@@ -80,9 +88,9 @@ public class DrawingPanel //implements MouseMotionListener, MouseListener, KeyLi
         }
         else if (this.choice==2)
         {
-            squareShape.draw(g2);
+            squareShape.draw(g2, chosenColor);
         }
-
+       
     }
  
 }
