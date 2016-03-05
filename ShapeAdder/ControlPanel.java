@@ -31,6 +31,9 @@ public class ControlPanel  extends JPanel
    JPanel colorPanel;
    Color currentColor;
    Color preColor;
+   /**
+     *This constructs the ControlPanel with 3 buttons and buttonListeners.
+     */
    public ControlPanel(DrawingPanel canvas)
    {
        this.squareButton= new JButton("Add Square");
@@ -83,6 +86,7 @@ public class ControlPanel  extends JPanel
                  colorPanel.setBackground(currentColor);
                }
             }
+            drawPan.repaint();
         }
 
     }

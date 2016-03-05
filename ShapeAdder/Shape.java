@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.Color;
 import javax.swing.JComponent;
+import java.awt.geom.Point2D;
 /**
  * This abstract class implements a shape with a given center, radius, and color.
  * Its constructor and methods are summarized in Table 2.
@@ -14,16 +15,31 @@ import javax.swing.JComponent;
  */
 public abstract class Shape
 {
-    private int radius;
-    private int width;
-    private int center;
+    private double radius;
+    private double width;
+    private int centerX;
+    private int centerY;
     Color currentColor;
     //Note that we are making a square, so both width and height are the same.
-    public Shape()
+    public Shape()//Point2D.Double center, double radius, Color color)
     {
-       this.radius =50;
-       this.width= 70;
-       this.center= 250;
+       //this.radius =radius;
+       //this.width= 70;
+       //this.currentColor= color;
+       //this.centerX= center;
+       //this.centerY= center;
+    }
+//    public Point2D.Double getCenter()
+//      {
+//          return doublex();
+//      }
+    public double getRadius()
+    {
+        return this.radius;
+    }
+    public void setRadius(double r)
+    {
+        this.radius= r;
     }
     
     public void draw(Graphics2D g2)

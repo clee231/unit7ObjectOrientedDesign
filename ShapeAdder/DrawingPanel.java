@@ -27,7 +27,7 @@ import javax.swing.JPanel;
  * @author (Bryce Lee) 
  * @version (2/24/2016)
  */
-public class DrawingPanel extends JPanel //implements MouseMotionListener, MouseListener, KeyListener
+public class DrawingPanel extends JPanel 
 {
     Square squareShape;
     Circle circleShape;
@@ -44,6 +44,11 @@ public class DrawingPanel extends JPanel //implements MouseMotionListener, Mouse
 
     }
 
+        /**
+     * This method returns the current color.
+     *
+     * @return     The color chosen by the user.
+     */
     public Color getColor()
     {
         return chosenColor;
@@ -54,30 +59,51 @@ public class DrawingPanel extends JPanel //implements MouseMotionListener, Mouse
         return new Dimension(400,400);
     }
 
-    public void pickColor()
+    /**
+     * This method allows the user to choose a color, then after chosen, the panel will change colors.
+     *
+     */public void pickColor()
     {
         // we want to use the get color method first, then set the default color to the 
         chosenColor=JColorChooser.showDialog(null, "Choose a color", chosenColor);
        
     }
 
+    /**
+     * This method is calling the nextFrame method to call paintComponent to draw a circle.
+     *
+     * @param Called from ControlPanel. Parameter of color, to color the circle.
+     */
     public void addCircle(Color currentColor)
     {
         this.choice=1;
         chosenColor = currentColor;
-        //shapeList.add(circleShape);
-        repaint();
+        System.out.println("Cir1");
+        shapeList.add(circleShape);
+        this.nextFrame();
     }
 
+    /**
+     * This method is calling the nextFrame to call paintComponent to draw a square. 
+     *
+     * @param  Called from ControlPanel. Parameter of color, in order to color the square shape. 
+     *          
+     */
     public void addSquare(Color currentColor)
     {
         this.choice=2;
         chosenColor = currentColor;
         //shapeList.add(squareShape);
-        repaint();
+        System.out.println("squ1");
+        this.nextFrame();
 
     }
 
+    
+   /**
+     * This method redraws all the shapes in the ArrayList shapeList.
+     * @param  takes a parameter of Graphics g.
+     */
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
@@ -85,12 +111,26 @@ public class DrawingPanel extends JPanel //implements MouseMotionListener, Mouse
         if (this.choice==1)
         {
             circleShape.draw(g2);
+            System.out.println("Cir");
         }
         else if (this.choice==2)
         {
             squareShape.draw(g2, chosenColor);
+            System.out.println("squ");
         }
-       
+       System.out.println("Here");
     }
- 
+    /**
+     * This method calls repaint to then call paintComponent to redraw all shapes.
+     *
+     * 
+    */
+     public void nextFrame()
+    {
+        // request that the Java Runtime repaints this component by invoking its paintComponent method
+        this.repaint();
+        System.out.println("nextR");
+    }
+
+
 }

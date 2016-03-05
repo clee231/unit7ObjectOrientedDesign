@@ -20,13 +20,17 @@ public class DrawingEditor extends JFrame
   public final static int WIDTH= 500;
   public final static int HEIGHT= 500;
 
+  /**
+  * This is the constructor of DrawingEditor, and this is where the window will be made with all components.
+  *
+  */
   public DrawingEditor()
   { 
   
      DrawingPanel canvas= new DrawingPanel();
      ControlPanel controls= new ControlPanel(canvas);
-    
      BorderLayout layout= new BorderLayout();
+     
      //making the objects
      
      this.setSize(WIDTH,HEIGHT);
@@ -35,7 +39,7 @@ public class DrawingEditor extends JFrame
      // adding the objects to the canvas
 
     
-     this.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
+     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      this.setVisible(true);
      //things needed to make the window
   }
