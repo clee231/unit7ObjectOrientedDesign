@@ -24,9 +24,9 @@ public abstract class Shape
     public Shape()//Point2D.Double center,double radius, Color color)
     {
        // Do not know how to use Point2D.Double...
-       //this.radius =radius;
-       //this.width= 70;
-       //this.currentColor= color;
+       this.radius =radius;
+       this.width= width;
+       this.currentColor= new Color(0,0,0);
        //this.centerX= center;
        //this.centerY= center;
     }
