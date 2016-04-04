@@ -13,7 +13,7 @@ import java.awt.Color;
  */
 public class Square extends Shape
 {
-    
+    private double width;
     
     public Square()
     {

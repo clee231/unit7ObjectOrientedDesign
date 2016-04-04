@@ -19,21 +19,21 @@ public abstract class Shape
     private double width;
     private int centerX;
     private int centerY;
+    private Point2D.Double trueCenter;
     Color currentColor;
     //Note that we are making a square, so both width and height are the same.
-    public Shape()//Point2D.Double center,double radius, Color color)
+    public Shape(Point2D.Double center, Color color)
     {
        // Do not know how to use Point2D.Double...
-       this.radius =radius;
+       //this.radius =radius;
        this.width= width;
        this.currentColor= new Color(0,0,0);
-       //this.centerX= center;
-       //this.centerY= center;
+       this.trueCenter= center;
     }
-//    public Point2D.Double getCenter()
-//      {
-//          return doublex();
-//      }
+    public Point2D.Double getCenter()
+     {
+         return trueCenter;
+     }
     public double getRadius()
     {
         return this.radius;

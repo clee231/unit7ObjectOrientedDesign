@@ -78,7 +78,7 @@ public class DrawingPanel extends JPanel
     {
         this.choice=1;
         chosenColor = currentColor;
-        System.out.println("Cir1");
+        System.out.println("In addCircle");
         shapeList.add(circleShape);
         this.nextFrame();
     }
@@ -94,7 +94,7 @@ public class DrawingPanel extends JPanel
         this.choice=2;
         chosenColor = currentColor;
         //shapeList.add(squareShape);
-        System.out.println("squ1");
+        System.out.println("In addSquare");
         this.nextFrame();
 
     }
@@ -111,14 +111,14 @@ public class DrawingPanel extends JPanel
         if (this.choice==1)
         {
             circleShape.draw(g2);
-            System.out.println("Cir");
+            System.out.println("Circle");
         }
         else if (this.choice==2)
         {
             squareShape.draw(g2, chosenColor);
-            System.out.println("squ");
+            System.out.println("Square");
         }
-       System.out.println("Here");
+       System.out.println("In paintComponent");
     }
     /**
      * This method calls repaint to then call paintComponent to redraw all shapes.
@@ -129,8 +129,21 @@ public class DrawingPanel extends JPanel
     {
         // request that the Java Runtime repaints this component by invoking its paintComponent method
         this.repaint();
-        System.out.println("nextR");
+        System.out.println("In nextFrame");
     }
-
-
+   public class MousePressListener implements MouseListener
+    {
+        public void mousePressed(MouseEvent event){}
+        public void mouseReleased(MouseEvent event){}
+        public void mouseClicked(MouseEvent event)
+        {
+            int x= event.getX();
+            int y= event.getY();
+            //Triangle.setPoints(x,y);
+            
+        }
+        public void mouseEntered(MouseEvent event){}
+        public void mouseExited(MouseEvent event){}
+    }
+    
 }
