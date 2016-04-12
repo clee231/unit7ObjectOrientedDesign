@@ -10,12 +10,13 @@ import java.awt.geom.Ellipse2D;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Circle extends Shape
+public class Circle 
 {
     private int radius;
+    
     public Circle()
     {
-      super();
+      
     }
     public void draw(Graphics2D g2)
     {

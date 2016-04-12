@@ -1,7 +1,4 @@
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.KeyListener;
+import java.awt.event.*; // this imports the MouseEvent, MouseListener, KeyListener, MouseMotionListener, etc...
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -35,17 +32,21 @@ public class DrawingPanel extends JPanel
     ArrayList<Shape> shapeList;
     Color chosenColor;
     int choice;
+    int positionX;
+    int positionY;
     public DrawingPanel()
     {
-            Square squareShape= new Square();
-            Circle circleShape= new Circle();
-            ArrayList<Shape> shapeList= new ArrayList<Shape>();
-            Color chosenColor=new Color(0,0,0);
-            this.setBackground(Color.WHITE);
+        Square squareShape= new Square();
+        Circle circleShape= new Circle();
+        ArrayList<Shape> shapeList= new ArrayList<Shape>();
+        Color chosenColor=new Color(0,0,0);
+        MousePressListener mListener= new MousePressListener();
+        this.setBackground(Color.WHITE);
+        this.addMouseListener(mListener);
 
     }
 
-        /**
+    /**
      * This method returns the current color.
      *
      * @return     The color chosen by the user.
@@ -67,7 +68,7 @@ public class DrawingPanel extends JPanel
     {
         // we want to use the get color method first, then set the default color to the 
         chosenColor=JColorChooser.showDialog(null, "Choose a color", chosenColor);
-       
+
     }
 
     /**
@@ -80,8 +81,8 @@ public class DrawingPanel extends JPanel
         this.choice=1;
         chosenColor = currentColor;
         System.out.println("In addCircle");
-        shapeList.add(circleShape);
-        this.nextFrame();
+        //shapeList.add(circleShape);
+        //this.nextFrame();
     }
 
     /**
@@ -96,12 +97,11 @@ public class DrawingPanel extends JPanel
         chosenColor = currentColor;
         //shapeList.add(squareShape);
         System.out.println("In addSquare");
-        this.nextFrame();
+        //this.nextFrame();
 
     }
 
-    
-   /**
+    /**
      * This method redraws all the shapes in the ArrayList shapeList.
      * @param  takes a parameter of Graphics g.
      */
@@ -109,6 +109,7 @@ public class DrawingPanel extends JPanel
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+        g2.drawOval(40, 40, 60, 60);
         if (this.choice==1)
         {
             circleShape.draw(g2);
@@ -119,32 +120,51 @@ public class DrawingPanel extends JPanel
             squareShape.draw(g2, chosenColor);
             System.out.println("Square");
         }
-       System.out.println("In paintComponent");
     }
+
     /**
      * This method calls repaint to then call paintComponent to redraw all shapes.
      *
      * 
-    */
-     public void nextFrame()
+     */
+    public void nextFrame()
     {
         // request that the Java Runtime repaints this component by invoking its paintComponent method
         this.repaint();
         System.out.println("In nextFrame");
     }
-   public class MousePressListener implements MouseListener
+    public class MousePressListener implements MouseListener, MouseMotionListener, KeyListener
     {
-        public void mousePressed(MouseEvent event){}
-        public void mouseReleased(MouseEvent event){}
-        public void mouseClicked(MouseEvent event)
-        {
-            int x= event.getX();
-            int y= event.getY();
+        public void mousePressed(MouseEvent event){
+            positionX= event.getX();
+            positionY= event.getY();
+
+            repaint();
+            System.out.println(positionX);
             //Triangle.setPoints(x,y);
-            
         }
+
+        public void mouseReleased(MouseEvent event){}
+
+        public void mouseClicked(MouseEvent event) {}
+
         public void mouseEntered(MouseEvent event){}
+
         public void mouseExited(MouseEvent event){}
+
+        public void mouseDragged(MouseEvent event) {
+            // will use
+        }
+
+        public void mouseMoved( MouseEvent event){ }
+
+        public void keyPressed(KeyEvent event){
+            // will use
+        }
+
+        public void keyReleased(KeyEvent event){}
+
+        public void keyTyped(KeyEvent event){}
     }
-    
+
 }

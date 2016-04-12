@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 import javax.swing.JComponent;
+import java.awt.geom.Point2D;
 import java.awt.Color;
 /**
  * gives the square the current color chosen, and places it on the 
@@ -11,13 +12,15 @@ import java.awt.Color;
  * @author (Bryce Lee) 
  * @version (a version number or a date)
  */
-public class Square extends Shape
+public class Square //extends Shape
 {
     private double width;
-    
+    private Point2D.Double squareCenter;
+    Color currentColor;
     public Square()
     {
-     super();
+        
+        //super();
      
     }
     public void draw(Graphics2D g2, Color color)
@@ -28,9 +31,6 @@ public class Square extends Shape
         g2.fill(bounds);
         
 
-    }
-    public void resize()
-    {
     }
     
    }
