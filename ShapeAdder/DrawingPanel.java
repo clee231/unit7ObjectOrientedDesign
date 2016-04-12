@@ -1,12 +1,8 @@
 import java.awt.event.*; // this imports the MouseEvent, MouseListener, KeyListener, MouseMotionListener, etc...
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Graphics;
+import java.awt.*;// Color, Dimension, Graphics2D, Graphics
 import java.util.ArrayList;
-import javax.swing.JColorChooser;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
+import java.awt.geom.Point2D;
+import javax.swing.*; //JColorChooser, Jcomponent, JPanel
 /**
  * This is where most of the work is done. 
  * This class is a subclass of JPanel and it implements the MouseListener, MouseMotionListener, and KeyListener interfaces
@@ -34,6 +30,7 @@ public class DrawingPanel extends JPanel
     int choice;
     int positionX;
     int positionY;
+    Point2D.Double center;
     public DrawingPanel()
     {
         Square squareShape= new Square();
@@ -97,7 +94,7 @@ public class DrawingPanel extends JPanel
         chosenColor = currentColor;
         //shapeList.add(squareShape);
         System.out.println("In addSquare");
-        //this.nextFrame();
+        repaint();
 
     }
 
@@ -124,8 +121,6 @@ public class DrawingPanel extends JPanel
 
     /**
      * This method calls repaint to then call paintComponent to redraw all shapes.
-     *
-     * 
      */
     public void nextFrame()
     {
@@ -138,9 +133,9 @@ public class DrawingPanel extends JPanel
         public void mousePressed(MouseEvent event){
             positionX= event.getX();
             positionY= event.getY();
-
+            Point2D.Double center = new Point2D.Double( positionX, positionY );
             repaint();
-            System.out.println(positionX);
+            System.out.println(center);
             //Triangle.setPoints(x,y);
         }
 

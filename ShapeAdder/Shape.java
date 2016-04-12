@@ -30,10 +30,12 @@ public abstract class Shape
        this.currentColor= new Color(0,0,0);
        this.trueCenter= center;
     }
+    
     public Point2D.Double getCenter()
      {
          return trueCenter;
      }
+     
     public double getRadius()
     {
         return this.radius;

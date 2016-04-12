@@ -1,10 +1,7 @@
-import java.awt.Graphics2D;
-import java.awt.Graphics;
-import java.awt.Rectangle;
+import java.awt.*; //Graphics2D, Graphics, Rectangle, Color
 import java.awt.geom.Rectangle2D;
 import javax.swing.JComponent;
 import java.awt.geom.Point2D;
-import java.awt.Color;
 /**
  * gives the square the current color chosen, and places it on the 
  * DrawingPanel.
