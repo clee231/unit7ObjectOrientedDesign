@@ -109,7 +109,7 @@ public class DrawingPanel extends JPanel
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        g2.drawOval(40, 40, 60, 60);
+        g2.drawOval(positionX, positionY, 60, 60);
         if (this.choice==1)
         {
             circleShape.draw(g2);
