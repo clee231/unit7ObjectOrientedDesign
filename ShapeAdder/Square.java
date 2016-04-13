@@ -12,7 +12,7 @@ import java.awt.geom.Point2D;
 public class Square //extends Shape
 {
     private double width;
-    private Point2D.Double squareCenter;
+    private Point2D.Double center;
     Color currentColor;
     public Square()
     {
