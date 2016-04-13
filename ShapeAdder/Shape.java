@@ -16,30 +16,23 @@ import java.awt.geom.Point2D;
 public abstract class Shape
 {
     private double radius;
-    private double width;
     private int centerX;
     private int centerY;
     private Point2D.Double trueCenter;
     Color currentColor;
     //Note that we are making a square, so both width and height are the same.
-    public Shape(Point2D.Double center, Color color)
+    public Shape(Point2D.Double center,double radius,  Color color)
     {
-       // Do not know how to use Point2D.Double...
-       //this.radius =radius;
-       this.width= width;
+       this.radius= radius;
        this.currentColor= new Color(0,0,0);
        this.trueCenter= center;
     }
     
     public Point2D.Double getCenter()
-     {
-         return trueCenter;
-     }
-     
-    public double getRadius()
     {
-        return this.radius;
+         return trueCenter;
     }
+    
     public void setRadius(double r)
     {
         this.radius= r;
@@ -48,6 +41,11 @@ public abstract class Shape
     public void draw(Graphics2D g2)
     {
         // this is just temp. We will need to grab the color of shape when clicked
+    }
+    
+    public void move(double x, double y)
+    {
+        
     }
     
     public void resize()
