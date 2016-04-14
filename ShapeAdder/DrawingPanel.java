@@ -37,7 +37,7 @@ public class DrawingPanel extends JPanel
     public DrawingPanel()
     {
         Square squareShape= new Square(center,width,chosenColor);
-        Circle circleShape= new Circle();
+        Circle circleShape= new Circle(center,width,chosenColor);
         ArrayList<Shape> shapeList= new ArrayList<Shape>();
         Color chosenColor=new Color(0,0,0);
         MousePressListener mListener= new MousePressListener();
