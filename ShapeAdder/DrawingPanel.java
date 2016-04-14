@@ -28,12 +28,15 @@ public class DrawingPanel extends JPanel
     ArrayList<Shape> shapeList;
     Color chosenColor;
     int choice;
+    double width;
+    //
     int positionX;
     int positionY;
+    //
     Point2D.Double center;
     public DrawingPanel()
     {
-        Square squareShape= new Square();
+        Square squareShape= new Square(center,width,chosenColor);
         Circle circleShape= new Circle();
         ArrayList<Shape> shapeList= new ArrayList<Shape>();
         Color chosenColor=new Color(0,0,0);

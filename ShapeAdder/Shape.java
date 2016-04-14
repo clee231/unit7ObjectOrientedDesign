@@ -21,10 +21,10 @@ public abstract class Shape
     private Point2D.Double trueCenter;
     Color currentColor;
     //Note that we are making a square, so both width and height are the same.
-    public Shape(Point2D.Double center,double radius,  Color color)
+    public Shape(Point2D.Double center,double radius, Color color)
     {
        this.radius= radius;
-       this.currentColor= new Color(0,0,0);
+       this.currentColor= color;
        this.trueCenter= center;
     }
     
@@ -38,7 +38,7 @@ public abstract class Shape
         this.radius= r;
     }
     
-    public void draw(Graphics2D g2)
+    public void draw(Graphics2D g2, boolean filled)
     {
         // this is just temp. We will need to grab the color of shape when clicked
     }
@@ -46,10 +46,6 @@ public abstract class Shape
     public void move(double x, double y)
     {
         
-    }
-    
-    public void resize()
-    {
     }
     
 }

@@ -9,15 +9,18 @@ import java.awt.geom.Point2D;
  * @author (Bryce Lee) 
  * @version (a version number or a date)
  */
-public class Square //extends Shape
+public class Square extends Shape
 {
     private double width;
     private Point2D.Double center;
     Color currentColor;
-    public Square()
+    public Square(Point2D.Double currentCenter, double width, Color color)
     {
+        super(currentCenter, width, color);
+        this.width= width;
+        this.center= currentCenter;
+        this.currentColor= color;
         
-        //super();
      
     }
     public void draw(Graphics2D g2, Color color)
