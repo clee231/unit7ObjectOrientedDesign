@@ -143,25 +143,19 @@ public class DrawingPanel extends JPanel
         }
 
         public void mouseReleased(MouseEvent event){}
-
         public void mouseClicked(MouseEvent event) {}
-
         public void mouseEntered(MouseEvent event){}
-
         public void mouseExited(MouseEvent event){}
-
+        public void mouseMoved( MouseEvent event){}
         public void mouseDragged(MouseEvent event) {
             // will use
         }
-
-        public void mouseMoved( MouseEvent event){ }
 
         public void keyPressed(KeyEvent event){
             // will use
         }
 
         public void keyReleased(KeyEvent event){}
-
         public void keyTyped(KeyEvent event){}
     }
 
