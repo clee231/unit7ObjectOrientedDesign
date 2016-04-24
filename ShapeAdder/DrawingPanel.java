@@ -1,6 +1,7 @@
 import java.awt.event.*; // this imports the MouseEvent, MouseListener, KeyListener, MouseMotionListener, etc...
 import java.awt.*;// Color, Dimension, Graphics2D, Graphics
 import java.util.ArrayList;
+import java.util.Random;
 import java.awt.geom.Point2D;
 import javax.swing.*; //JColorChooser, Jcomponent, JPanel
 /**
@@ -34,15 +35,17 @@ public class DrawingPanel extends JPanel
     int positionY;
     //
     Point2D.Double center;
+    Random random;
     public DrawingPanel()
     {
         Square squareShape= new Square(center,width,chosenColor);
         Circle circleShape= new Circle(center,width,chosenColor);
-        ArrayList<Shape> shapeList= new ArrayList<Shape>();
+        this.shapeList= new ArrayList<Shape>();
         Color chosenColor=new Color(0,0,0);
         MousePressListener mListener= new MousePressListener();
         this.setBackground(Color.WHITE);
         this.addMouseListener(mListener);
+        this.random = new Random();
 
     }
 
@@ -81,8 +84,12 @@ public class DrawingPanel extends JPanel
         this.choice=1;
         chosenColor = currentColor;
         System.out.println("In addCircle");
-        //shapeList.add(circleShape);
+        Point2D.Double curCent = new Point2D.Double(positionX, positionY);
+        Circle addCircle= new Circle(curCent,60,chosenColor);
+        this.shapeList.add(addCircle);
+        System.out.println("Size of shapeList:" + shapeList.size());
         //this.nextFrame();
+        //repaint();
     }
 
     /**
@@ -95,9 +102,11 @@ public class DrawingPanel extends JPanel
     {
         this.choice=2;
         chosenColor = currentColor;
-        //shapeList.add(squareShape);
+        Point2D.Double curCent = new Point2D.Double(positionX, positionY);
+        Square addSquare = new Square(curCent,60,chosenColor);
+        shapeList.add(addSquare);
         System.out.println("In addSquare");
-        repaint();
+        //repaint();
 
     }
 
@@ -109,16 +118,23 @@ public class DrawingPanel extends JPanel
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        g2.drawOval(positionX, positionY, 60, 60);
-        if (this.choice==1)
-        {
-            circleShape.draw(g2);
-            System.out.println("Circle");
-        }
-        else if (this.choice==2)
-        {
-            squareShape.draw(g2, chosenColor);
-            System.out.println("Square");
+        //g2.drawOval(positionX, positionY, 60, 60);
+        //if (this.choice==1)
+        //{
+        //    circleShape.draw(g2);
+        //    System.out.println("Circle");
+        //}
+        //else if (this.choice==2)
+        //{
+        //    squareShape.draw(g2, chosenColor);
+        //    System.out.println("Square");
+        //}
+        for(Shape cur : shapeList) {
+        	if (cur instanceof Circle) {
+        		((Circle)cur).draw(g2);
+        	}else {
+        		((Square)cur).draw(g2,chosenColor);
+        	}
         }
     }
 

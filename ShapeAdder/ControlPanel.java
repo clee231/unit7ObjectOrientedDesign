@@ -39,7 +39,7 @@ public class ControlPanel  extends JPanel
        this.squareButton= new JButton("Add Square");
        this.circleButton= new JButton("Add Circle");
        this.pickColor= new JButton("Choose Color");
-       this.drawPan= new DrawingPanel();
+       this.drawPan= canvas;
        this.colorPanel= new JPanel();
        Color currentColor = new Color(0,0,0);
        Color preColor= new Color(0,0,0);

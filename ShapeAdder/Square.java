@@ -27,10 +27,12 @@ public class Square extends Shape
     {
         Color shapeColor= color;
         g2.setColor(shapeColor);
-        Rectangle2D.Double bounds = new Rectangle2D.Double(10, 10, 50, 50);
+        Rectangle2D.Double bounds = new Rectangle2D.Double((int)this.center.getX(),(int)this.center.getY(), this.width, this.width);
         g2.fill(bounds);
         
 
     }
-    
+    public String getType() {
+    	return "square";
+    }
    }
